@@ -30,7 +30,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 	## Make a list of object methods
 	list(set = set, get = get,
-	     setInverse = setInverse, getInverse = getInverse)	
+	     setInverse = setInverse, getInverse = getInverse)
 }
 
 
@@ -48,7 +48,7 @@ cacheSolve <- function(x, ...) {
 	}
 
 	## No inverse stored in the cache, so determine inverse and
-	## store it in the cache before returning itmac
+	## store it in the cache before returning it
 	message("cacheSolve: Calculating inverse and storing in cache")
 	inverse <- solve(x$get(), ...)
 	x$setInverse(inverse)
@@ -56,7 +56,7 @@ cacheSolve <- function(x, ...) {
 }
 
 
-## Some tests
+## Some tests.
 
 test <- function() {
 	m = rbind(c(1, -1/4), c(-1/4, 1))
@@ -73,7 +73,7 @@ test <- function() {
 	print(inv)
 	message("\nChecking by multiplying: inv(m) * m =")
 	print(inv %*% m)
-	
+
 	message("\n\n---------------\n\n")
 	m = rbind(c(1, 2, 4), c(0, 7, 3), c(9, -1, -2))
 	message("Matrix m = ")
@@ -88,5 +88,5 @@ test <- function() {
 	message("Inverse (2 - from cache) of m = ")
 	print(inv)
 	message("\nChecking by multiplying: inv(m) * m =")
-	print(inv %*% m)	
+	print(inv %*% m)
 }
